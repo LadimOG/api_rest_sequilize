@@ -1,7 +1,7 @@
 const productValidator = require("../validator/productValidator");
 const Products = require("../models/Product.shemas");
 
-//logique des routes
+//logique des routes implementé
 
 module.exports.getAll = async (req, res) => {
   const product = await Products.findAll({
