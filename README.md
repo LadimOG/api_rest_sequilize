@@ -3,7 +3,7 @@ petit api rest pour comprendre les bases
 
 do that before for init the project
 
-npm install
+npm install <br/>
 npm run dev
 
 server running on http://localhost:3005 
