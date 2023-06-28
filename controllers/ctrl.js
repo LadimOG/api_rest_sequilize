@@ -15,7 +15,12 @@ module.exports.getAll = async (req, res) => {
 };
 module.exports.getOne = async (req, res) => {
   const { id } = req.params;
-  const product = await Products.findByPk(id);
+  const product = await Products.findOne({
+    where: { id: +id },
+    attributes: {
+      exclude: ["createdAt", "updatedAt"],
+    },
+  });
 
   try {
     if (!product) {
