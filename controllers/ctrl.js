@@ -11,7 +11,7 @@ module.exports.getAll = async (req, res) => {
   });
 
   if (!product) {
-    res.status(500).json({ msg: "product not found" });
+    res.status(404).json({ msg: "product not found" });
   }
   res.status(200).json(product);
 };
