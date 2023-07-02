@@ -10,6 +10,7 @@ const {
 
 const router = express.Router();
 
+//les routes de navigation
 router.get("/getAll", getAll);
 router.get("/getOne/:id", getOne);
 router.post("/createOne", createOne);
