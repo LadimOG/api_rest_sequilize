@@ -1,6 +1,8 @@
 const productValidator = require("../validator/productValidator");
 const Products = require("../models/Product.shemas");
 
+//logique des routes implementé
+
 module.exports.getAll = async (req, res) => {
   const product = await Products.findAll({
     attributes: {
@@ -9,13 +11,18 @@ module.exports.getAll = async (req, res) => {
   });
 
   if (!product) {
-    res.status(500).json({ msg: "product not found" });
+    res.status(404).json({ msg: "product not found" });
   }
   res.status(200).json(product);
 };
 module.exports.getOne = async (req, res) => {
   const { id } = req.params;
-  const product = await Products.findByPk(id);
+  const product = await Products.findOne({
+    where: { id: +id },
+    attributes: {
+      exclude: ["createdAt", "updatedAt"],
+    },
+  });
 
   try {
     if (!product) {
